@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html ng-app="adoptionApp">
+	<head>
+		<link href='http://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+		
+		<meta charset="utf-8">
+
+		<title>An HTML Page</title>
+
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<![endif]-->
+
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
+
+		
+		<script src="js/angular.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/KittiesController.js"></script>
+		
+	</head>
+
+	<body ng-controller="AdoptionController as cats">
+		
+		<div id="container">
+			<div class="left-container">
+				<h1>Kitties for Adoption</h1>
+				<ul>
+					<li ng-repeat="cat in cats.catList | filter: false" class="dashed">
+						<div> My name is {{cat.catName}}<div>
+						<div> I am {{cat.monthsOld}} months old. </div>
+						<div> I am a {{cat.gender}} </div>
+						<img src= "{{cat.image}}">
+						<div>Adopt?<input class="checkbox" type="checkbox" ng-model="cat.adopted"></div> 
+					</li>
+				</ul>
+			</div>
+
+			<div class="right-container">
+				<h1>At their forever homes</h1>
+				<ul>
+					<li ng-repeat="cat in cats.catList | filter: true" class="dashed">
+						<div> My name is {{cat.catName}}<div>
+						<div> I am {{cat.monthsOld}} months old. </div>
+						<div> I am a {{cat.gender}} </div>
+						<img src= "{{cat.image}}">
+						<div>Adopt?<input class="checkbox" type="checkbox" ng-model="cat.adopted"><div> 
+					</li>
+				</ul>		
+			</div>
+
+		<div>
+	</body>
+</html>
